@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63300F2721190BBE0028BA4D /* ThreadDelayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 63300F2621190BBE0028BA4D /* ThreadDelayVC.m */; };
 		63F684B821167D2900EE8E1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F684B721167D2900EE8E1B /* AppDelegate.m */; };
 		63F684BE21167D2900EE8E1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F684BC21167D2900EE8E1B /* Main.storyboard */; };
 		63F684C021167D2B00EE8E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F684BF21167D2B00EE8E1B /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63300F2521190BBE0028BA4D /* ThreadDelayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadDelayVC.h; sourceTree = "<group>"; };
+		63300F2621190BBE0028BA4D /* ThreadDelayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadDelayVC.m; sourceTree = "<group>"; };
 		63F684B321167D2900EE8E1B /* DLMultithreading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLMultithreading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F684B621167D2900EE8E1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		63F684B721167D2900EE8E1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				63F684E22116F09500EE8E1B /* GCDSyncVC.m */,
 				63F684E42117233A00EE8E1B /* GCDCommunicationVC.h */,
 				63F684E52117233A00EE8E1B /* GCDCommunicationVC.m */,
+				63300F2521190BBE0028BA4D /* ThreadDelayVC.h */,
+				63300F2621190BBE0028BA4D /* ThreadDelayVC.m */,
 				63F684BC21167D2900EE8E1B /* Main.storyboard */,
 				63F684BF21167D2B00EE8E1B /* Assets.xcassets */,
 				63F684C121167D2B00EE8E1B /* LaunchScreen.storyboard */,
@@ -173,6 +178,7 @@
 				63F684E62117233A00EE8E1B /* GCDCommunicationVC.m in Sources */,
 				63F684E02116DAF600EE8E1B /* GCDAsyncVC.m in Sources */,
 				63F684B821167D2900EE8E1B /* AppDelegate.m in Sources */,
+				63300F2721190BBE0028BA4D /* ThreadDelayVC.m in Sources */,
 				63F684E32116F09500EE8E1B /* GCDSyncVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LN7UHJEGQE;
 				INFOPLIST_FILE = DLMultithreading/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,6 +340,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LN7UHJEGQE;
 				INFOPLIST_FILE = DLMultithreading/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

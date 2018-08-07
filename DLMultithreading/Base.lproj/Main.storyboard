@@ -173,6 +173,31 @@
                                             <segue destination="enw-6m-AzU" kind="push" id="XwZ-hz-mol"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="LKD-ZL-iXX">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LKD-ZL-iXX" id="0Rd-Tm-G8L">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thread Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLf-aM-X5p">
+                                                    <rect key="frame" x="16" y="12" width="101.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wLf-aM-X5p" secondAttribute="trailingMargin" id="iJT-Xc-zWz"/>
+                                                <constraint firstItem="wLf-aM-X5p" firstAttribute="leading" secondItem="0Rd-Tm-G8L" secondAttribute="leadingMargin" id="jKF-9u-4yp"/>
+                                                <constraint firstItem="wLf-aM-X5p" firstAttribute="centerY" secondItem="0Rd-Tm-G8L" secondAttribute="centerY" id="w5Z-UK-Glo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="85Y-k3-zzX" kind="push" id="XJG-fI-fDy"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -181,11 +206,61 @@
                             <outlet property="delegate" destination="gQe-cv-N4z" id="6OI-Zq-fIp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hrk-yl-jrH"/>
+                    <navigationItem key="navigationItem" title="Multithreading" id="hrk-yl-jrH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZx-LB-JHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="-222"/>
+        </scene>
+        <!--Thread DelayVC-->
+        <scene sceneID="cke-hi-Zlb">
+            <objects>
+                <viewController id="85Y-k3-zzX" customClass="ThreadDelayVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TQH-hw-gpI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMH-Qu-gfM">
+                                <rect key="frame" x="82" y="124" width="211" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="NSThread Delay"/>
+                                <connections>
+                                    <action selector="threadDelay:" destination="85Y-k3-zzX" eventType="touchUpInside" id="vuO-Xi-kXG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-oC-Y1z">
+                                <rect key="frame" x="115.5" y="212" width="144" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="GCD Delay"/>
+                                <connections>
+                                    <action selector="GCSDelay:" destination="85Y-k3-zzX" eventType="touchUpInside" id="GMh-sr-8uc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hm8-E5-Flg">
+                                <rect key="frame" x="96.5" y="300" width="182" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Perform Delay"/>
+                                <connections>
+                                    <action selector="performDelay:" destination="85Y-k3-zzX" eventType="touchUpInside" id="rLR-sX-jWx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Txb-oC-Y1z" firstAttribute="centerX" secondItem="TQH-hw-gpI" secondAttribute="centerX" id="02O-9Q-rNJ"/>
+                            <constraint firstItem="xMH-Qu-gfM" firstAttribute="centerX" secondItem="TQH-hw-gpI" secondAttribute="centerX" id="3ZZ-W4-jpt"/>
+                            <constraint firstItem="hm8-E5-Flg" firstAttribute="centerX" secondItem="TQH-hw-gpI" secondAttribute="centerX" id="KIN-kj-zub"/>
+                            <constraint firstItem="xMH-Qu-gfM" firstAttribute="top" secondItem="xnW-uL-Dw6" secondAttribute="top" constant="60" id="UJ4-y5-YKy"/>
+                            <constraint firstItem="Txb-oC-Y1z" firstAttribute="top" secondItem="xMH-Qu-gfM" secondAttribute="bottom" constant="40" id="o7p-wd-a5P"/>
+                            <constraint firstItem="hm8-E5-Flg" firstAttribute="top" secondItem="Txb-oC-Y1z" secondAttribute="bottom" constant="40" id="pD1-mK-08E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xnW-uL-Dw6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Cl-qa-3nU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBn-bf-fJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="-223"/>
         </scene>
         <!--AsyncVC-->
         <scene sceneID="nGg-dH-1nr">
@@ -215,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5x-2i-KIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="-166"/>
+            <point key="canvasLocation" x="886" y="-1208"/>
         </scene>
         <!--CommunicationVC-->
         <scene sceneID="M2x-Qa-gNM">
@@ -259,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkN-mh-9wj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.60000000000002" y="253.2233883058471"/>
+            <point key="canvasLocation" x="886" y="-1209"/>
         </scene>
         <!--SyncVC-->
         <scene sceneID="aFQ-kg-41l">
@@ -289,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MR2-4Z-BWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="-5"/>
+            <point key="canvasLocation" x="886" y="-1207"/>
         </scene>
         <!--Thread SecurityVC-->
         <scene sceneID="jRW-OW-OUv">
@@ -319,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owa-rW-3et" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2594" y="-1205"/>
+            <point key="canvasLocation" x="886" y="-1207"/>
         </scene>
         <!--Pthread-->
         <scene sceneID="rQB-WT-gGZ">
@@ -366,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qry-0L-q1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="-1317"/>
+            <point key="canvasLocation" x="887" y="-1206"/>
         </scene>
         <!--Multithreading-->
         <scene sceneID="POl-aL-aFt">
@@ -377,6 +452,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -462,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDt-ia-Rel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="-1254"/>
+            <point key="canvasLocation" x="886" y="-1206"/>
         </scene>
     </scenes>
 </document>

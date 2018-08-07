@@ -17,13 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (IBAction)download:(id)sender {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        NSURL *imageURL = [NSURL URLWithString:@"https://images.unsplash.com/photo-1494698852314-652666555934?ixlib=rb-0.3.5&s=3dd23e2727cd56c0c2f4ec8627984a41&auto=format&fit=crop&w=400&q=20"];
+        NSURL *imageURL = [NSURL URLWithString:@"https://images.unsplash.com/photo-1494698852314-652666555934?ixlib=rb-0.3.5&s=3dd23e2727cd56c0c2f4ec8627984a41&auto=format&fit=crop&w=800&q=40"];
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = [UIImage imageWithData:imageData];
