@@ -46,7 +46,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="WfX-4Y-SAQ" kind="push" id="NuU-k8-qLc"/>
+                                            <segue destination="WfX-4Y-SAQ" kind="show" id="NuU-k8-qLc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uCH-Cw-4fL">
@@ -71,7 +71,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="R7f-EY-Hcd" kind="push" id="cdG-px-Gu1"/>
+                                            <segue destination="R7f-EY-Hcd" kind="show" id="cdG-px-Gu1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="zI7-ax-dVE">
@@ -96,7 +96,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="7pq-7L-P4k" kind="push" id="XOr-g7-gCr"/>
+                                            <segue destination="7pq-7L-P4k" kind="show" id="XOr-g7-gCr"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="48h-k6-a4e">
@@ -121,7 +121,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="uuX-Yd-Hvw" kind="push" id="tcB-82-t5U"/>
+                                            <segue destination="uuX-Yd-Hvw" kind="show" id="tcB-82-t5U"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="a3e-cT-SbD">
@@ -146,7 +146,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="btd-DT-Byp" kind="push" id="DIU-Ik-Ji3"/>
+                                            <segue destination="btd-DT-Byp" kind="show" id="DIU-Ik-Ji3"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ldP-YM-PP5">
@@ -171,7 +171,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="enw-6m-AzU" kind="push" id="XwZ-hz-mol"/>
+                                            <segue destination="enw-6m-AzU" kind="show" id="XwZ-hz-mol"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="LKD-ZL-iXX">
@@ -196,7 +196,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="85Y-k3-zzX" kind="push" id="XJG-fI-fDy"/>
+                                            <segue destination="85Y-k3-zzX" kind="show" id="XJG-fI-fDy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="msJ-7c-aDC">
@@ -221,7 +221,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="179-f4-5VL" kind="push" id="4z9-By-T0J"/>
+                                            <segue destination="179-f4-5VL" kind="show" id="4z9-By-T0J"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="8eP-7T-mIt">
@@ -246,7 +246,32 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="DtB-NT-dci" kind="push" id="lhA-P4-lex"/>
+                                            <segue destination="DtB-NT-dci" kind="show" id="lhA-P4-lex"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="yP7-Yb-bAr">
+                                        <rect key="frame" x="0.0" y="396" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yP7-Yb-bAr" id="E5G-iN-gwc">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NSInvocationOperation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jym-fu-0fX">
+                                                    <rect key="frame" x="16" y="12" width="177" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jym-fu-0fX" secondAttribute="trailingMargin" id="6R8-2d-0sM"/>
+                                                <constraint firstItem="Jym-fu-0fX" firstAttribute="centerY" secondItem="E5G-iN-gwc" secondAttribute="centerY" id="B4o-om-HZe"/>
+                                                <constraint firstItem="Jym-fu-0fX" firstAttribute="leading" secondItem="E5G-iN-gwc" secondAttribute="leadingMargin" id="IjB-9A-hRp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="I3V-RI-mhm" kind="show" id="bGm-yu-vsR"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -262,6 +287,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZx-LB-JHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="-222"/>
+        </scene>
+        <!--Invocation OperationVC-->
+        <scene sceneID="J1g-MM-2mP">
+            <objects>
+                <viewController id="I3V-RI-mhm" customClass="InvocationOperationVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7zi-Hg-84H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nA8-dd-0NW">
+                                <rect key="frame" x="156" y="124" width="62" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="start:" destination="I3V-RI-mhm" eventType="touchUpInside" id="g0N-pu-JA6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f3-RX-iax">
+                                <rect key="frame" x="93" y="223" width="188" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Add Operation"/>
+                                <connections>
+                                    <action selector="add:" destination="I3V-RI-mhm" eventType="touchUpInside" id="9bB-rv-aJM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nA8-dd-0NW" firstAttribute="top" secondItem="NdG-BO-Q85" secondAttribute="top" constant="60" id="7WL-a7-5G2"/>
+                            <constraint firstItem="nA8-dd-0NW" firstAttribute="centerX" secondItem="7zi-Hg-84H" secondAttribute="centerX" id="DOU-o6-tnd"/>
+                            <constraint firstItem="4f3-RX-iax" firstAttribute="centerX" secondItem="7zi-Hg-84H" secondAttribute="centerX" id="mwE-zt-UR7"/>
+                            <constraint firstItem="4f3-RX-iax" firstAttribute="top" secondItem="nA8-dd-0NW" secondAttribute="bottom" constant="51" id="xxA-SY-pk0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NdG-BO-Q85"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Gz-f1-BA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-262"/>
         </scene>
         <!--GroupVC-->
         <scene sceneID="9C9-cD-Bdi">
@@ -305,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PM7-D2-g9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="-277.51124437781112"/>
+            <point key="canvasLocation" x="886" y="-1210"/>
         </scene>
         <!--OnceVC-->
         <scene sceneID="yZJ-zh-NlU">

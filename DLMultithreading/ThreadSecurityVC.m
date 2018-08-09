@@ -41,7 +41,7 @@
         if (count > 0) {
             [NSThread sleepForTimeInterval:0.05];
             _leftTicket = count - 1;
-            NSLog(@"%@ sale one ticket, %ld left", [NSThread currentThread].name, _leftTicket);
+            NSLog(@"%@ sale one ticket, %lu left", [NSThread currentThread].name, (unsigned long)_leftTicket);
         } else {
             [NSThread exit];
             return;
