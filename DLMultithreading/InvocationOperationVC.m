@@ -44,12 +44,28 @@
 //    queue.maxConcurrentOperationCount = 2;
     
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(download) object:self];
+    
+//    [operation setCompletionBlock:^{
+//        NSLog(@"operation Completion");
+//    }];
+    
     [queue addOperation:operation];
+    
+    /* cancel, suspend
+     * [queue cancelAllOperations];
+     * [operation cancel];
+     * [queue setSuspended:YES];
+     *
+     */
     
 //    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
 //    NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
 //        [self download];
 //    }];
+//    NSBlockOperation *blockOperation1 = [NSBlockOperation blockOperationWithBlock:^{
+//        [self download];
+//    }];
+//    [blockOperation addDependency: blockOperation1];
 //    [queue addOperation:blockOperation];
     
 //    [queue addOperationWithBlock:^{
