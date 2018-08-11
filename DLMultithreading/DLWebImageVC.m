@@ -8,6 +8,7 @@
 
 #import "DLWebImageVC.h"
 #import "DLApp.h"
+#import "DLOperation.h"
 
 #define CACHE_IMAGE_PATH(imageName) [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent: [imageName lastPathComponent]]
 
@@ -65,19 +66,13 @@
             NSOperationQueue *currentOperation = _operationDic[appModel.icon];
             if (!currentOperation) {
                 __weak typeof(self) weakSelf = self;
-                NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-                    NSURL *imageURL = [NSURL URLWithString:appModel.icon];
-                    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-                    UIImage *image = [UIImage imageWithData:imageData];
-                    
-                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                        if (image) {
-                            weakSelf.imageDic[appModel.icon] = image;
-                            [imageData writeToFile:CACHE_IMAGE_PATH(appModel.icon) atomically:YES];
-                        }
-                        [weakSelf.operationDic removeObjectForKey:appModel.icon];
-                        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                    }];
+                DLOperation *operation = [[DLOperation alloc] initWithIconURL:appModel.icon indexPath:indexPath andCompletion:^(UIImage *image, NSIndexPath *indexPath) {
+                    if (image) {
+                        weakSelf.imageDic[appModel.icon] = image;
+                        [UIImagePNGRepresentation(image) writeToFile:CACHE_IMAGE_PATH(appModel.icon) atomically:YES];
+                    }
+                    [weakSelf.operationDic removeObjectForKey:appModel.icon];
+                    [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                 }];
                 _operationDic[appModel.icon] = operation;
                 [_queue addOperation:operation];
