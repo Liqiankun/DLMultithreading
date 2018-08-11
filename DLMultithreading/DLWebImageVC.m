@@ -8,6 +8,9 @@
 
 #import "DLWebImageVC.h"
 #import "DLApp.h"
+
+#define CACHE_PATH NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
+
 @interface DLWebImageVC ()<UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) NSMutableArray<DLApp *> *dataArray;
@@ -18,6 +21,7 @@
 @end
 
 @implementation DLWebImageVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +44,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     DLApp *appModel = _dataArray[indexPath.row];
     cell.textLabel.text = appModel.name;
     cell.detailTextLabel.text = appModel.download;
@@ -48,38 +54,42 @@
     if (currentImage) {
         cell.imageView.image = currentImage;
     } else {
-        cell.imageView.image = [UIImage imageNamed:@"placeholder"];
-        
-        NSOperationQueue *currentOperation = _operationDic[appModel.icon];
-        if (!currentOperation) {
-            __weak typeof(self) weakSelf = self;
-            NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-                NSURL *imageURL = [NSURL URLWithString:appModel.icon];
-                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-                UIImage *image = [UIImage imageWithData:imageData];
-                
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    if (image) {
-                        weakSelf.imageDic[appModel.icon] = image;
-                    }
-                    [weakSelf.operationDic removeObjectForKey:appModel.icon];
-                    [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        NSString *cacheImageName = [appModel.icon lastPathComponent];
+        NSString *cacheFilePath = [CACHE_PATH stringByAppendingPathComponent:cacheImageName];
+        NSData *cacheImageData = [NSData dataWithContentsOfFile:cacheFilePath];
+        if (cacheImageData) {
+            UIImage *cacheImage = [UIImage imageWithData:cacheImageData];
+            cell.imageView.image = cacheImage;
+            _imageDic[appModel.icon] = cacheImage;
+        } else {
+            cell.imageView.image = [UIImage imageNamed:@"placeholder"];
+            
+            NSOperationQueue *currentOperation = _operationDic[appModel.icon];
+            if (!currentOperation) {
+                __weak typeof(self) weakSelf = self;
+                NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+                    NSURL *imageURL = [NSURL URLWithString:appModel.icon];
+                    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        if (image) {
+                            weakSelf.imageDic[appModel.icon] = image;
+                            NSString *imageName = [appModel.icon lastPathComponent];
+                            NSString *filePath = [CACHE_PATH stringByAppendingPathComponent:imageName];
+                            [imageData writeToFile:filePath atomically:YES];
+                        }
+                        [weakSelf.operationDic removeObjectForKey:appModel.icon];
+                        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                    }];
                 }];
-            }];
-            _operationDic[appModel.icon] = operation;
-            [_queue addOperation:operation];
+                _operationDic[appModel.icon] = operation;
+                [_queue addOperation:operation];
+            }
         }
     }
     
     return cell;
-}
-
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [_queue setSuspended:YES];
-}
-
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [_queue setSuspended:NO];
 }
 
 -(void)didReceiveMemoryWarning {
