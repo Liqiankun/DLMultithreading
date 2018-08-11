@@ -9,7 +9,7 @@
 #import "DLWebImageVC.h"
 #import "DLApp.h"
 
-#define CACHE_PATH NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
+#define CACHE_IMAGE_PATH(imageName) [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent: [imageName lastPathComponent]]
 
 @interface DLWebImageVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -54,9 +54,7 @@
     if (currentImage) {
         cell.imageView.image = currentImage;
     } else {
-        NSString *cacheImageName = [appModel.icon lastPathComponent];
-        NSString *cacheFilePath = [CACHE_PATH stringByAppendingPathComponent:cacheImageName];
-        NSData *cacheImageData = [NSData dataWithContentsOfFile:cacheFilePath];
+        NSData *cacheImageData = [NSData dataWithContentsOfFile:CACHE_IMAGE_PATH(appModel.icon)];
         if (cacheImageData) {
             UIImage *cacheImage = [UIImage imageWithData:cacheImageData];
             cell.imageView.image = cacheImage;
@@ -75,9 +73,7 @@
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         if (image) {
                             weakSelf.imageDic[appModel.icon] = image;
-                            NSString *imageName = [appModel.icon lastPathComponent];
-                            NSString *filePath = [CACHE_PATH stringByAppendingPathComponent:imageName];
-                            [imageData writeToFile:filePath atomically:YES];
+                            [imageData writeToFile:CACHE_IMAGE_PATH(appModel.icon) atomically:YES];
                         }
                         [weakSelf.operationDic removeObjectForKey:appModel.icon];
                         [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
