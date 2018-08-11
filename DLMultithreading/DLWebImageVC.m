@@ -28,6 +28,7 @@
     _imageDic = [[NSMutableDictionary alloc] init];
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArray.count;
 }
@@ -51,8 +52,7 @@
         
         NSOperationQueue *currentOperation = _operationDic[appModel.icon];
         if (!currentOperation) {
-            __block NSMutableDictionary *imageDic = _imageDic;
-            __block NSMutableDictionary *operationDic = _operationDic;
+            __weak typeof(self) weakSelf = self;
             NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
                 NSURL *imageURL = [NSURL URLWithString:appModel.icon];
                 NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -60,10 +60,10 @@
                 
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     if (image) {
-                        imageDic[appModel.icon] = image;
+                        weakSelf.imageDic[appModel.icon] = image;
                     }
-                    [operationDic removeObjectForKey:appModel.icon];
-                    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                    [weakSelf.operationDic removeObjectForKey:appModel.icon];
+                    [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                 }];
             }];
             _operationDic[appModel.icon] = operation;
@@ -72,6 +72,26 @@
     }
     
     return cell;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [_queue setSuspended:YES];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [_queue setSuspended:NO];
+}
+
+-(void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+    [_queue cancelAllOperations];
+    [_operationDic removeAllObjects];
+    [_imageDic removeAllObjects];
+}
+
+-(void)dealloc {
+    NSLog(@"dealloc");
 }
 
 @end
